@@ -4,214 +4,91 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Football Arena : calendrier des matchs, résultats et liens vers les diffuseurs officiels du football international et arabe.">
+<meta name="description" content="Football Arena : calendrier, scores et recherche des diffusions officielles des matchs de football européens et arabes.">
 <meta name="theme-color" content="#071b17">
-<title>Football Arena — Matchs, résultats et diffusions</title>
-
+<title>Football Arena — Matchs, scores et directs officiels</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2328287169001826" crossorigin="anonymous"></script>
 
 <style>
-:root{
-  --bg:#071b17;
-  --panel:#102a24;
-  --panel2:#15352d;
-  --line:#26483e;
-  --text:#f3f7f4;
-  --muted:#a6bbb2;
-  --green:#b8f36b;
-  --orange:#ffbf69
-}
+:root{--bg:#071b17;--panel:#102a24;--panel2:#15352d;--line:#26483e;--text:#f3f7f4;--muted:#a6bbb2;--green:#b8f36b;--orange:#ffbf69}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:radial-gradient(ellipse at top right,#153c30 0,transparent 38%),var(--bg);
-  color:var(--text);
-  font:16px/1.5 system-ui,Arial,sans-serif
-}
+body{margin:0;background:radial-gradient(ellipse at top right,#153c30 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.5 system-ui,Arial,sans-serif}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(1180px,calc(100% - 32px));margin:auto}
-.topbar{
-  border-bottom:1px solid #ffffff12;
-  background:#071b17dd;
-  position:sticky;top:0;z-index:10;
-  backdrop-filter:blur(12px)
-}
-.nav{
-  min-height:76px;display:flex;align-items:center;
-  gap:24px;justify-content:space-between
-}
+.topbar{border-bottom:1px solid #ffffff12;background:#071b17dd;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
+.nav{min-height:76px;display:flex;align-items:center;gap:24px;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:20px}
-.logo{
-  width:39px;height:39px;border-radius:13px;
-  background:var(--green);color:#10231a;
-  display:grid;place-items:center;font-size:22px
-}
+.logo{width:39px;height:39px;border-radius:13px;background:var(--green);color:#10231a;display:grid;place-items:center;font-size:22px}
 .links{display:flex;gap:22px;color:var(--muted);font-size:14px}
 .links a:hover{color:var(--green)}
-.pill{
-  border:1px solid #ffffff24;padding:8px 12px;
-  border-radius:999px;font-size:12px;color:var(--green)
-}
-.hero{
-  padding:56px 0 34px;
-  display:grid;grid-template-columns:1.3fr .7fr;
-  gap:28px;align-items:center
-}
-.eyebrow{
-  display:inline-flex;gap:8px;align-items:center;
-  color:var(--green);font-weight:800;font-size:12px;
-  letter-spacing:1.7px;text-transform:uppercase
-}
-.dot{
-  width:7px;height:7px;border-radius:50%;
-  background:var(--green);box-shadow:0 0 12px var(--green)
-}
+.pill{border:1px solid #ffffff24;padding:8px 12px;border-radius:999px;font-size:12px;color:var(--green)}
+.hero{padding:56px 0 34px;display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--green);font-weight:800;font-size:12px;letter-spacing:1.7px;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
 h1{font-size:clamp(38px,5vw,64px);line-height:1.02;letter-spacing:-2px;margin:16px 0}
 h1 span{color:var(--green)}
 .hero p{color:var(--muted);max-width:600px;margin:0 0 22px}
 .actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  border:0;cursor:pointer;padding:12px 17px;border-radius:12px;
-  font-weight:800;background:var(--green);color:#14231a;
-  font:inherit;font-size:13px
-}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;cursor:pointer;padding:12px 17px;border-radius:12px;font-weight:800;background:var(--green);color:#14231a;font:inherit;font-size:13px}
 .btn.secondary{background:#ffffff0b;border:1px solid #ffffff20;color:var(--text)}
-.btn:hover{filter:brightness(1.08)}
-.hero-card{
-  background:linear-gradient(145deg,#183c30,#10251f);
-  border:1px solid var(--line);border-radius:24px;padding:24px;
-  box-shadow:0 18px 70px #0003
-}
+.btn:hover,.watch-btn:hover{filter:brightness(1.08)}
+.hero-card{background:linear-gradient(145deg,#183c30,#10251f);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 18px 70px #0003}
 .hero-card .big{font-size:42px;font-weight:900}
 .hero-card p{font-size:14px}
-.minirow{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:13px 0;border-top:1px solid #ffffff14;font-size:14px
-}
+.minirow{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid #ffffff14;font-size:14px}
 .minirow strong{color:var(--green)}
-.ad{
-  margin:12px auto 28px;min-height:90px;
-  border:1px dashed #ffffff2b;border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-  color:#718b80;font-size:11px;letter-spacing:1.3px;
-  text-transform:uppercase;text-align:center;padding:16px
-}
-.section-head{
-  display:flex;justify-content:space-between;align-items:end;
-  gap:16px;margin:34px 0 18px
-}
+.ad{margin:12px auto 28px;min-height:90px;border:1px dashed #ffffff2b;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#718b80;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;text-align:center;padding:16px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:34px 0 18px}
 .section-head h2{font-size:27px;margin:0}
 .section-head p{color:var(--muted);font-size:13px;margin:4px 0 0}
 .filters{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}
-.filter,select,input[type=date]{
-  background:#102a24;border:1px solid var(--line);
-  color:var(--text);border-radius:10px;padding:10px 12px;
-  font:inherit;font-size:13px
-}
+.filter,select,input[type=date]{background:#102a24;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 12px;font:inherit;font-size:13px}
 .filter{cursor:pointer}
-.filter.active{
-  background:var(--green);color:#10231a;
-  border-color:var(--green);font-weight:800
-}
+.filter.active{background:var(--green);color:#10231a;border-color:var(--green);font-weight:800}
 .match-tools{display:flex;gap:8px;flex-wrap:wrap}
-.statusline{
-  display:flex;justify-content:space-between;align-items:center;
-  color:var(--muted);font-size:13px;margin:12px 0
-}
+.statusline{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-size:13px;margin:12px 0}
 .match-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.match{
-  background:linear-gradient(120deg,#102a24,#0d241e);
-  border:1px solid var(--line);border-radius:17px;padding:18px;min-width:0
-}
-.match-top{
-  display:flex;justify-content:space-between;gap:10px;
-  align-items:center;color:var(--muted);font-size:12px;margin-bottom:17px
-}
+.match{background:linear-gradient(120deg,#102a24,#0d241e);border:1px solid var(--line);border-radius:17px;padding:18px;min-width:0}
+.match-top{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--muted);font-size:12px;margin-bottom:17px}
 .league{color:var(--green);font-weight:800}
-.badge{
-  font-size:10px;border-radius:99px;padding:5px 8px;
-  background:#ffffff0c;border:1px solid #ffffff15;white-space:nowrap
-}
+.badge{font-size:10px;border-radius:99px;padding:5px 8px;background:#ffffff0c;border:1px solid #ffffff15;white-space:nowrap}
 .badge.live{color:#ff9a9a}
 .teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
 .team{text-align:center;font-weight:800;overflow-wrap:anywhere}
-.crest{
-  width:40px;height:40px;margin:0 auto 8px;border-radius:13px;
-  background:var(--panel2);display:grid;place-items:center;font-size:19px
-}
+.crest{width:40px;height:40px;margin:0 auto 8px;border-radius:13px;background:var(--panel2);display:grid;place-items:center;font-size:19px}
 .score{font-size:23px;font-weight:900;white-space:nowrap}
-.match-bottom{
-  border-top:1px solid #ffffff12;margin-top:16px;padding-top:12px;
-  display:flex;justify-content:space-between;gap:10px;
-  color:var(--muted);font-size:11px
-}
+.match-bottom{border-top:1px solid #ffffff12;margin-top:16px;padding-top:12px;display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px}
 .match-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.watch-btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  padding:10px 13px;border-radius:10px;background:var(--green);
-  color:#10231a;font-size:12px;font-weight:900;border:0
-}
-.watch-btn:hover{filter:brightness(1.08)}
-.empty{
-  grid-column:1/-1;border:1px dashed var(--line);
-  border-radius:16px;padding:30px;text-align:center;color:var(--muted)
-}
+.watch-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 13px;border-radius:10px;background:var(--green);color:#10231a;font-size:12px;font-weight:900;border:0}
+.watch-btn.secondary{background:#ffffff0b;border:1px solid #ffffff20;color:var(--text)}
+.empty{grid-column:1/-1;border:1px dashed var(--line);border-radius:16px;padding:30px;text-align:center;color:var(--muted)}
 .notice{color:var(--muted);font-size:12px;margin:14px 0 0}
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .news{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:20px}
 .news .emoji{font-size:26px}
 .news h3{font-size:17px;margin:12px 0 7px}
 .news p{font-size:13px;color:var(--muted);margin:0}
-.broadcast{
-  border:1px solid var(--line);
-  background:linear-gradient(120deg,#102a24,#0b211b);
-  border-radius:20px;padding:24px;
-  display:grid;grid-template-columns:1fr .8fr;gap:20px;align-items:center
-}
+.broadcast{border:1px solid var(--line);background:linear-gradient(120deg,#102a24,#0b211b);border-radius:20px;padding:24px;display:grid;grid-template-columns:1fr .8fr;gap:20px;align-items:center}
 .broadcast h3{font-size:23px;margin:8px 0}
 .broadcast p{color:var(--muted);font-size:14px}
 .embedform{display:flex;gap:8px;flex-wrap:wrap}
 .embedform input{flex:1;min-width:160px}
-.video{
-  margin-top:15px;aspect-ratio:16/9;background:#050e0b;
-  border-radius:14px;overflow:hidden;display:none
-}
+.video{margin-top:15px;aspect-ratio:16/9;background:#050e0b;border-radius:14px;overflow:hidden;display:none}
 .video iframe{width:100%;height:100%;border:0}
-footer{
-  margin-top:52px;border-top:1px solid #ffffff16;
-  padding:28px 0 40px;color:var(--muted);font-size:12px
-}
+footer{margin-top:52px;border-top:1px solid #ffffff16;padding:28px 0 40px;color:var(--muted);font-size:12px}
 .footrow{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .attribution{margin-top:12px}
 .error{color:var(--orange)}
-@media(max-width:760px){
-  .links{display:none}
-  .hero{grid-template-columns:1fr;padding-top:38px}
-  .hero-card{display:none}
-  .match-grid,.news-grid{grid-template-columns:1fr}
-  .broadcast{grid-template-columns:1fr}
-  .section-head{align-items:start;flex-direction:column}
-  .nav{min-height:65px}
-  h1{letter-spacing:-1.4px}
-}
+@media(max-width:760px){.links{display:none}.hero{grid-template-columns:1fr;padding-top:38px}.hero-card{display:none}.match-grid,.news-grid{grid-template-columns:1fr}.broadcast{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.nav{min-height:65px}h1{letter-spacing:-1.4px}}
 </style>
 </head>
-
 <body>
 <header class="topbar">
   <div class="wrap nav">
-    <a class="brand" href="#accueil">
-      <span class="logo">⚽</span>
-      <span>FOOTBALL <span style="color:var(--green)">ARENA</span></span>
-    </a>
+    <a class="brand" href="#accueil"><span class="logo">⚽</span><span>FOOTBALL <span style="color:var(--green)">ARENA</span></span></a>
     <nav class="links">
-      <a href="#matchs">Matchs</a>
-      <a href="#competitions">Compétitions</a>
-      <a href="#matchs-arabes">Matchs arabes</a>
-      <a href="#actus">À la une</a>
-      <a href="#diffusion">Diffusions officielles</a>
+      <a href="#matchs">Matchs</a><a href="#competitions">Compétitions</a><a href="#matchs-arabes">Matchs arabes</a><a href="#actus">À la une</a><a href="#diffusion">Diffusions</a>
     </nav>
     <a class="pill" href="#matchs">● Données API</a>
   </div>
@@ -222,17 +99,13 @@ footer{
   <div>
     <div class="eyebrow"><span class="dot"></span> Le football, en un seul endroit</div>
     <h1>Le jeu ne<br>s'arrête <span>jamais.</span></h1>
-    <p>Retrouvez le calendrier et les scores des grandes compétitions européennes et arabes, ainsi que des liens vers les sites officiels des diffuseurs.</p>
-    <div class="actions">
-      <a class="btn" href="#matchs">Matchs européens ↓</a>
-      <a class="btn secondary" href="#matchs-arabes">Matchs arabes ↓</a>
-    </div>
+    <p>Consultez les calendriers et scores des matchs européens et arabes. Recherchez aussi où regarder chaque rencontre auprès des diffuseurs officiels.</p>
+    <div class="actions"><a class="btn" href="#matchs">Matchs européens ↓</a><a class="btn secondary" href="#matchs-arabes">Matchs arabes ↓</a></div>
   </div>
   <aside class="hero-card">
-    <div class="eyebrow">Votre rendez-vous football</div>
-    <div class="big">90'<span style="color:var(--green)">+</span></div>
-    <p>Avant-match, coup d'envoi et résultats : consultez les rencontres disponibles.</p>
-    <div class="minirow"><span>Actualisation européenne</span><strong>Automatique</strong></div>
+    <div class="eyebrow">Votre rendez-vous football</div><div class="big">90'<span style="color:var(--green)">+</span></div>
+    <p>Avant-match, coup d'envoi et résultats des rencontres disponibles.</p>
+    <div class="minirow"><span>Actualisation</span><strong>Automatique</strong></div>
     <div class="minirow"><span>Sources de données</span><strong>2 API</strong></div>
   </aside>
 </section>
@@ -241,14 +114,9 @@ footer{
 
 <section id="matchs">
   <div class="section-head">
-    <div>
-      <div class="eyebrow">Source 1 · Football-Data.org</div>
-      <h2>Matchs européens</h2>
-      <p>Les horaires sont affichés dans votre fuseau horaire local.</p>
-    </div>
+    <div><div class="eyebrow">Source 1 · Football-Data.org</div><h2>Matchs européens</h2><p>Les horaires sont affichés dans votre fuseau horaire local.</p></div>
     <button class="btn secondary" id="refresh">↻ Actualiser l'Europe</button>
   </div>
-
   <div class="filters" id="competitions">
     <button class="filter active" data-comp="ALL">Toutes les compétitions</button>
     <button class="filter" data-comp="PL">Premier League</button>
@@ -259,78 +127,47 @@ footer{
     <button class="filter" data-comp="FL1">Ligue 1</button>
     <button class="filter" data-comp="WC">Coupe du monde</button>
   </div>
-
   <div class="match-tools">
     <label class="filter" for="fromDate">Du <input id="fromDate" type="date"></label>
     <label class="filter" for="toDate">Au <input id="toDate" type="date"></label>
     <button class="btn" id="applyDates">Rechercher les matchs</button>
   </div>
-
-  <div class="statusline">
-    <span id="status">Chargement des matchs européens…</span>
-    <span id="updated"></span>
-  </div>
-  <div class="match-grid" id="matchGrid">
-    <div class="empty">Chargement des données football…</div>
-  </div>
-  <p class="notice">La disponibilité des compétitions dépend de votre abonnement Football-Data.org. Le bouton de diffusion ouvre le site officiel correspondant, sans garantir la retransmission du match affiché.</p>
+  <div class="statusline"><span id="status">Chargement des matchs européens…</span><span id="updated"></span></div>
+  <div class="match-grid" id="matchGrid"><div class="empty">Chargement des données football…</div></div>
+  <p class="notice">Le bouton de chaque rencontre recherche des informations de diffusion propres au match. Les résultats de recherche ne garantissent pas qu'un flux gratuit soit disponible.</p>
 </section>
 
 <div class="ad">Espace publicitaire · emplacement publicitaire</div>
 
 <section id="matchs-arabes">
   <div class="section-head">
-    <div>
-      <div class="eyebrow">Source 2 · API-Football</div>
-      <h2>Matchs du monde arabe</h2>
-      <p>Algérie, Égypte, Arabie saoudite, Maroc, Tunisie et autres pays couverts par l'API.</p>
-    </div>
+    <div><div class="eyebrow">Source 2 · API-Football</div><h2>Matchs du monde arabe</h2><p>Rencontres des pays arabes couvertes par l'API.</p></div>
     <button class="btn secondary" id="refreshArab">↻ Actualiser les matchs arabes</button>
   </div>
-
-  <div class="statusline">
-    <span id="arabStatus">Chargement des matchs arabes…</span>
-    <span id="arabUpdated"></span>
-  </div>
-  <div class="match-grid" id="arabMatchGrid">
-    <div class="empty">Récupération des matchs arabes…</div>
-  </div>
-  <p class="notice">Pour consulter une autre journée, choisissez une date dans le champ « Du », puis cliquez sur « Rechercher les matchs ». L'API ne renvoie que les rencontres qu'elle couvre pour la date demandée.</p>
+  <div class="statusline"><span id="arabStatus">Chargement des matchs arabes…</span><span id="arabUpdated"></span></div>
+  <div class="match-grid" id="arabMatchGrid"><div class="empty">Récupération des matchs arabes…</div></div>
+  <p class="notice">La date choisie dans « Du » est utilisée pour les matchs arabes. L'API ne renvoie que les rencontres couvertes pour cette date.</p>
 </section>
 
 <div class="ad">Espace publicitaire · emplacement publicitaire</div>
 
 <section id="actus">
-  <div class="section-head">
-    <div>
-      <div class="eyebrow">À la une</div>
-      <h2>Le football en bref</h2>
-      <p>Des rubriques prêtes à accueillir vos propres articles et actualités.</p>
-    </div>
-  </div>
+  <div class="section-head"><div><div class="eyebrow">À la une</div><h2>Le football en bref</h2><p>Rubriques pour vos analyses et actualités football.</p></div></div>
   <div class="news-grid">
-    <article class="news"><div class="emoji">🌍</div><h3>Le football mondial</h3><p>Suivez les grands rendez-vous internationaux et les compétitions majeures de la saison.</p></article>
-    <article class="news"><div class="emoji">🏆</div><h3>La course aux trophées</h3><p>Consultez les rencontres et les résultats disponibles pour les compétitions prises en charge.</p></article>
-    <article class="news"><div class="emoji">📣</div><h3>Votre espace éditorial</h3><p>Ajoutez vos analyses, avant-matchs et comptes rendus pour fidéliser vos lecteurs.</p></article>
+    <article class="news"><div class="emoji">🌍</div><h3>Le football mondial</h3><p>Suivez les grands rendez-vous internationaux et les compétitions majeures.</p></article>
+    <article class="news"><div class="emoji">🏆</div><h3>La course aux trophées</h3><p>Consultez les rencontres et les résultats des compétitions couvertes.</p></article>
+    <article class="news"><div class="emoji">📣</div><h3>Votre espace éditorial</h3><p>Ajoutez vos analyses, avant-matchs et comptes rendus.</p></article>
   </div>
 </section>
 
 <div class="ad">Espace publicitaire · emplacement publicitaire</div>
 
 <section id="diffusion">
-  <div class="section-head">
-    <div>
-      <div class="eyebrow">Regarder légalement</div>
-      <h2>Diffusions officielles</h2>
-      <p>Les droits varient selon le pays et la compétition. Vérifiez toujours le programme du diffuseur.</p>
-    </div>
-  </div>
-
+  <div class="section-head"><div><div class="eyebrow">Regarder légalement</div><h2>Lecteur vidéo officiel</h2><p>Intégrez une vidéo officielle uniquement si sa diffusion et son intégration sont autorisées.</p></div></div>
   <div class="broadcast">
     <div>
-      <div class="eyebrow">Streaming autorisé</div>
-      <h3>Lecteur vidéo officiel</h3>
-      <p>Vous pouvez afficher ici une vidéo officielle intégrable de YouTube ou Vimeo. Le lien doit être une véritable URL d'intégration autorisée.</p>
+      <h3>Afficher une vidéo officielle</h3>
+      <p>Ce lecteur n'invente pas de flux : il fonctionne avec une URL d'intégration YouTube ou Vimeo valide que vous êtes autorisé à utiliser.</p>
       <form class="embedform" id="videoForm">
         <input id="videoUrl" type="url" placeholder="https://www.youtube.com/embed/..." aria-label="URL d'intégration officielle" required>
         <button class="btn" type="submit">Afficher</button>
@@ -339,13 +176,11 @@ footer{
     </div>
     <div>
       <div class="actions">
-        <a class="btn secondary" href="https://www.plus.fifa.com/" target="_blank" rel="noopener noreferrer">FIFA+ ↗</a>
+        <a class="btn secondary" href="https://www.plus.fifa.com/" target="_blank" rel="noopener noreferrer">Catalogue FIFA+ ↗</a>
         <a class="btn secondary" href="https://www.entv.dz/" target="_blank" rel="noopener noreferrer">EPTV Algérie ↗</a>
         <a class="btn secondary" href="https://www.beinsports.com/" target="_blank" rel="noopener noreferrer">beIN SPORTS ↗</a>
       </div>
-      <div class="video" id="videoBox">
-        <iframe id="videoFrame" title="Lecteur vidéo officiel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-      </div>
+      <div class="video" id="videoBox"><iframe id="videoFrame" title="Lecteur vidéo officiel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
     </div>
   </div>
 </section>
@@ -353,13 +188,9 @@ footer{
 
 <footer>
   <div class="wrap">
-    <div class="footrow">
-      <span>© <span id="year"></span> Football Arena</span>
-      <span>Scores européens : Football-Data.org · Matchs arabes : API-Football</span>
-      <span>Les logos et marques appartiennent à leurs propriétaires.</span>
-    </div>
+    <div class="footrow"><span>© <span id="year"></span> Football Arena</span><span>Scores : Football-Data.org · API-Football</span><span>Les marques appartiennent à leurs propriétaires.</span></div>
     <div class="attribution">Football data provided by the respective football data APIs.</div>
-    <p>Les informations peuvent être retardées ou indisponibles selon la compétition et le forfait API. Les liens de diffusion ne garantissent pas que le match soit retransmis dans votre pays.</p>
+    <p>Les disponibilités des matchs et des diffusions peuvent varier selon la région et les droits télévisés.</p>
   </div>
 </footer>
 
@@ -382,140 +213,57 @@ const todayLocal = () => {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 };
 
-const addDays = (date, n) => {
+const addDays = (date,n) => {
   const d = new Date(`${date}T12:00:00`);
-  d.setDate(d.getDate() + n);
+  d.setDate(d.getDate()+n);
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 };
 
 document.getElementById("fromDate").value = todayLocal();
-document.getElementById("toDate").value = addDays(todayLocal(), 7);
+document.getElementById("toDate").value = addDays(todayLocal(),7);
 document.getElementById("year").textContent = new Date().getFullYear();
 
 function fmtDate(value) {
-  if (!value) return "Horaire indisponible";
+  if(!value) return "Horaire indisponible";
   const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return "Horaire indisponible";
-  return new Intl.DateTimeFormat("fr-FR", {
-    weekday: "short",
-    day: "2-digit",
-    month: "short",
-    hour: "2-digit",
-    minute: "2-digit"
-  }).format(d);
+  if(Number.isNaN(d.getTime())) return "Horaire indisponible";
+  return new Intl.DateTimeFormat("fr-FR",{weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}).format(d);
 }
 
 function esc(value) {
-  return String(value ?? "").replace(/[&<>"']/g, c => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  }[c]));
+  return String(value ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
 
 function initials(name) {
-  return (name || "?").split(/\s+/).slice(0,2).map(w => w[0] || "").join("").toUpperCase();
+  return (name||"?").split(/\s+/).slice(0,2).map(w=>w[0]||"").join("").toUpperCase();
 }
 
 /*
-  Répertoire de liens officiels.
-  Ces liens ouvrent les sites des diffuseurs ou organisateurs.
-  Ils ne constituent pas une confirmation qu'un match précis est diffusé.
+  Recherche ciblée par match.
+  Ce bouton ne prétend PAS qu'un flux a été vérifié :
+  il recherche les informations de diffusion de cette rencontre.
 */
-function officialBroadcaster(country, competitionCode) {
-  const c = String(country || "").trim().toLowerCase();
+function watchSearchButton({home,away,competition,date,country}) {
+  const matchName = `${home} vs ${away}`;
+  const query = [
+    `"${matchName}"`,
+    competition || "football",
+    date || "",
+    country || "Algeria",
+    "official broadcaster live stream watch"
+  ].filter(Boolean).join(" ");
 
-  const arabBroadcasters = {
-    "algeria": {
-      name: "EPTV — Télévision algérienne",
-      url: "https://www.entv.dz/"
-    },
-    "morocco": {
-      name: "SNRT Live — Maroc",
-      url: "https://snrtlive.ma/"
-    },
-    "tunisia": {
-      name: "Télévision tunisienne",
-      url: "https://www.tunisiatv.tn/"
-    },
-    "egypt": {
-      name: "WATCH IT — Égypte",
-      url: "https://www.watchit.com/"
-    },
-    "saudi arabia": {
-      name: "Shahid — Arabie saoudite",
-      url: "https://shahid.mbc.net/"
-    },
-    "united arab emirates": {
-      name: "Abu Dhabi Sports",
-      url: "https://www.adsports.tv/"
-    },
-    "qatar": {
-      name: "beIN SPORTS",
-      url: "https://www.beinsports.com/"
-    },
-    "jordan": {
-      name: "Télévision jordanienne",
-      url: "https://www.jrtv.gov.jo/"
-    },
-    "iraq": {
-      name: "Iraqi Media Network",
-      url: "https://imn.iq/"
-    }
-  };
-
-  if (arabBroadcasters[c]) return arabBroadcasters[c];
-
-  const competitionLinks = {
-    "PL": {
-      name: "Premier League — site officiel",
-      url: "https://www.premierleague.com/"
-    },
-    "CL": {
-      name: "UEFA — Ligue des champions",
-      url: "https://www.uefa.com/uefachampionsleague/"
-    },
-    "PD": {
-      name: "La Liga — site officiel",
-      url: "https://www.laliga.com/"
-    },
-    "BL1": {
-      name: "Bundesliga — site officiel",
-      url: "https://www.bundesliga.com/"
-    },
-    "SA": {
-      name: "Serie A — site officiel",
-      url: "https://www.legaseriea.it/"
-    },
-    "FL1": {
-      name: "Ligue 1 — site officiel",
-      url: "https://ligue1.com/"
-    },
-    "WC": {
-      name: "FIFA — site officiel",
-      url: "https://www.fifa.com/"
-    }
-  };
-
-  return competitionLinks[competitionCode] || {
-    name: "FIFA+ — compétitions disponibles",
-    url: "https://www.plus.fifa.com/"
-  };
-}
-
-function broadcastButton(country, competitionCode) {
-  const broadcaster = officialBroadcaster(country, competitionCode);
+  const url = "https://www.google.com/search?q=" + encodeURIComponent(query);
 
   return `
     <div class="match-actions">
-      <a class="watch-btn"
-         href="${esc(broadcaster.url)}"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="${esc("Consulter le diffuseur officiel : " + broadcaster.name)}">
-        ▶ Diffusion officielle
+      <a class="watch-btn" href="${esc(url)}" target="_blank" rel="noopener noreferrer"
+         aria-label="${esc("Rechercher le diffuseur officiel pour " + matchName)}">
+        🔎 Trouver le direct officiel
+      </a>
+      <a class="watch-btn secondary" href="${esc("https://wheretowatch.football/")}"
+         target="_blank" rel="noopener noreferrer">
+        Guide TV football
       </a>
     </div>`;
 }
@@ -529,39 +277,44 @@ function matchCard(m) {
   const live = ["IN_PLAY","PAUSED","LIVE","EXTRA_TIME","PENALTY_SHOOTOUT"].includes(m.status);
 
   let matchStatus = "À VENIR";
-  if (live) matchStatus = "EN DIRECT";
-  else if (m.status === "FINISHED") matchStatus = "TERMINÉ";
-  else if (m.status === "POSTPONED") matchStatus = "REPORTÉ";
-  else if (m.status === "CANCELLED") matchStatus = "ANNULÉ";
-  else if (m.status === "SUSPENDED") matchStatus = "SUSPENDU";
+  if(live) matchStatus = "EN DIRECT";
+  else if(m.status==="FINISHED") matchStatus = "TERMINÉ";
+  else if(m.status==="POSTPONED") matchStatus = "REPORTÉ";
+  else if(m.status==="CANCELLED") matchStatus = "ANNULÉ";
+  else if(m.status==="SUSPENDED") matchStatus = "SUSPENDU";
 
   return `
     <article class="match">
       <div class="match-top">
         <span class="league">${esc(m.competition?.name || m.competition?.code || "Football")}</span>
-        <span class="badge ${live ? "live" : ""}">${matchStatus}</span>
+        <span class="badge ${live?"live":""}">${matchStatus}</span>
       </div>
       <div class="teams">
         <div class="team"><div class="crest">${esc(initials(home))}</div>${esc(home)}</div>
-        <div class="score">${hasScore ? `${hs} – ${as}` : "VS"}</div>
+        <div class="score">${hasScore?`${hs} – ${as}`:"VS"}</div>
         <div class="team"><div class="crest">${esc(initials(away))}</div>${esc(away)}</div>
       </div>
       <div class="match-bottom">
         <span>${esc(fmtDate(m.utcDate))}</span>
-        <span>${esc(m.matchday ? `Journée ${m.matchday}` : "")}</span>
+        <span>${esc(m.matchday?`Journée ${m.matchday}`:"")}</span>
       </div>
-      ${broadcastButton("", m.competition?.code || "")}
+      ${watchSearchButton({
+        home,away,
+        competition:m.competition?.name || m.competition?.code || "Football",
+        date:m.utcDate ? m.utcDate.slice(0,10) : "",
+        country:"Algeria"
+      })}
     </article>`;
 }
 
 function arabStatusLabel(status) {
-  if (["1H","2H","HT","ET","P","LIVE","BT"].includes(status)) return "EN DIRECT";
-  if (status === "FT" || status === "AET" || status === "PEN") return "TERMINÉ";
-  if (status === "PST") return "REPORTÉ";
-  if (status === "CANC") return "ANNULÉ";
-  if (status === "SUSP") return "SUSPENDU";
-  if (status === "ABD") return "INTERROMPU";
-  if (status === "NS") return "À VENIR";
+  if(["1H","2H","HT","ET","P","LIVE","BT"].includes(status)) return "EN DIRECT";
+  if(["FT","AET","PEN"].includes(status)) return "TERMINÉ";
+  if(status==="PST") return "REPORTÉ";
+  if(status==="CANC") return "ANNULÉ";
+  if(status==="SUSP") return "SUSPENDU";
+  if(status==="ABD") return "INTERROMPU";
+  if(status==="NS") return "À VENIR";
   return status || "À VENIR";
 }
 
@@ -572,34 +325,40 @@ function arabMatchCard(m) {
   const as = m.score?.fullTime?.away;
   const hasScore = hs !== null && hs !== undefined && as !== null && as !== undefined;
   const live = ["1H","2H","HT","ET","P","LIVE","BT"].includes(m.status);
+  const country = m.country || m.competition?.area?.name || "Pays arabe";
 
   return `
     <article class="match">
       <div class="match-top">
-        <span class="league">${esc(m.competition?.name || "Championnat arabe")} · ${esc(m.country || m.competition?.area?.name || "")}</span>
-        <span class="badge ${live ? "live" : ""}">${esc(arabStatusLabel(m.status))}</span>
+        <span class="league">${esc(m.competition?.name || "Championnat arabe")} · ${esc(country)}</span>
+        <span class="badge ${live?"live":""}">${esc(arabStatusLabel(m.status))}</span>
       </div>
       <div class="teams">
         <div class="team"><div class="crest">${esc(initials(home))}</div>${esc(home)}</div>
-        <div class="score">${hasScore ? `${hs} – ${as}` : "VS"}</div>
+        <div class="score">${hasScore?`${hs} – ${as}`:"VS"}</div>
         <div class="team"><div class="crest">${esc(initials(away))}</div>${esc(away)}</div>
       </div>
       <div class="match-bottom">
         <span>${esc(fmtDate(m.utcDate))}</span>
         <span>${esc(m.venue || "")}</span>
       </div>
-      ${broadcastButton(m.country || m.competition?.area?.name || "", m.competition?.code || "")}
+      ${watchSearchButton({
+        home,away,
+        competition:m.competition?.name || "Football",
+        date:m.utcDate ? m.utcDate.slice(0,10) : "",
+        country:"Algeria"
+      })}
     </article>`;
 }
 
 async function loadMatches() {
-  if (requestInProgress) return;
+  if(requestInProgress) return;
   requestInProgress = true;
 
   const from = document.getElementById("fromDate").value || todayLocal();
-  const to = document.getElementById("toDate").value || addDays(todayLocal(), 7);
+  const to = document.getElementById("toDate").value || addDays(todayLocal(),7);
 
-  if (from > to) {
+  if(from>to) {
     statusEl.textContent = "La date de début doit précéder la date de fin.";
     grid.innerHTML = '<div class="empty">Vérifiez les dates sélectionnées.</div>';
     requestInProgress = false;
@@ -611,41 +370,31 @@ async function loadMatches() {
   grid.innerHTML = '<div class="empty">Récupération des rencontres…</div>';
 
   try {
-    const params = new URLSearchParams({dateFrom: from, dateTo: to});
-    if (selectedComp !== "ALL") params.set("competition", selectedComp);
+    const params = new URLSearchParams({dateFrom:from,dateTo:to});
+    if(selectedComp!=="ALL") params.set("competition",selectedComp);
 
-    const response = await fetch(`/.netlify/functions/matches?${params.toString()}`, {
-      headers: {"Accept":"application/json"},
-      cache: "no-store"
+    const response = await fetch(`/.netlify/functions/matches?${params.toString()}`,{
+      headers:{"Accept":"application/json"},cache:"no-store"
     });
-
-    const text = await response.text();
+    const raw = await response.text();
     let data;
-    try {
-      data = JSON.parse(text);
-    } catch {
-      throw new Error(`Réponse non JSON de la fonction matches (HTTP ${response.status}).`);
-    }
+    try { data = JSON.parse(raw); }
+    catch { throw new Error(`Réponse non JSON de la fonction matches (HTTP ${response.status}).`); }
 
-    if (!response.ok || data.error) {
-      throw new Error(data.detail || data.error || `Erreur HTTP ${response.status}`);
-    }
-    if (!Array.isArray(data.matches)) {
-      throw new Error("La réponse européenne ne contient pas de liste matches.");
-    }
+    if(!response.ok || data.error) throw new Error(data.detail || data.error || `Erreur HTTP ${response.status}`);
+    if(!Array.isArray(data.matches)) throw new Error("La réponse européenne ne contient pas de liste matches.");
 
-    const matches = data.matches.slice().sort((a,b) => new Date(a.utcDate)-new Date(b.utcDate));
+    const matches = data.matches.slice().sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
 
-    if (!matches.length) {
-      grid.innerHTML = '<div class="empty">Aucun match européen trouvé pour cette période. Essayez une autre date ou une autre compétition.</div>';
+    if(!matches.length) {
+      grid.innerHTML = '<div class="empty">Aucun match européen trouvé pour cette période. Essayez une autre date ou compétition.</div>';
       statusEl.textContent = "Aucune rencontre européenne";
     } else {
       grid.innerHTML = matches.map(matchCard).join("");
-      statusEl.textContent = `${matches.length} rencontre${matches.length > 1 ? "s" : ""} européenne${matches.length > 1 ? "s" : ""}`;
+      statusEl.textContent = `${matches.length} rencontre${matches.length>1?"s":""} européenne${matches.length>1?"s":""}`;
     }
-
     updatedEl.textContent = `Mis à jour à ${new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}`;
-  } catch (error) {
+  } catch(error) {
     grid.innerHTML = `<div class="empty"><strong>Impossible de charger les matchs européens.</strong><br><span class="error">${esc(error.message || "Erreur inconnue")}</span><br><br>Vérifiez la fonction Netlify matches et la variable FOOTBALL_DATA_API_KEY.</div>`;
     statusEl.textContent = "Erreur de chargement européen";
   } finally {
@@ -654,7 +403,7 @@ async function loadMatches() {
 }
 
 async function loadArabMatches() {
-  if (arabRequestInProgress) return;
+  if(arabRequestInProgress) return;
   arabRequestInProgress = true;
 
   const date = document.getElementById("fromDate").value || todayLocal();
@@ -664,108 +413,89 @@ async function loadArabMatches() {
 
   try {
     const params = new URLSearchParams({date});
-    const response = await fetch(`/.netlify/functions/arab-matches?${params.toString()}`, {
-      headers: {"Accept":"application/json"},
-      cache: "no-store"
+    const response = await fetch(`/.netlify/functions/arab-matches?${params.toString()}`,{
+      headers:{"Accept":"application/json"},cache:"no-store"
     });
-
-    const text = await response.text();
+    const raw = await response.text();
     let data;
-    try {
-      data = JSON.parse(text);
-    } catch {
-      throw new Error(`Réponse non JSON de la fonction arab-matches (HTTP ${response.status}).`);
+    try { data = JSON.parse(raw); }
+    catch { throw new Error(`Réponse non JSON de la fonction arab-matches (HTTP ${response.status}).`); }
+
+    if(!response.ok || data.error) {
+      const detail = typeof data.details==="string" ? data.details : data.details ? JSON.stringify(data.details) : "";
+      throw new Error([data.error,detail].filter(Boolean).join(" — ") || `Erreur HTTP ${response.status}`);
     }
+    if(!Array.isArray(data.matches)) throw new Error("La réponse arabe ne contient pas de liste matches.");
 
-    if (!response.ok || data.error) {
-      const detail = typeof data.details === "string"
-        ? data.details
-        : data.details ? JSON.stringify(data.details) : "";
-      throw new Error([data.error, detail].filter(Boolean).join(" — ") || `Erreur HTTP ${response.status}`);
-    }
+    const matches = data.matches.slice().sort((a,b)=>new Date(a.utcDate)-new Date(b.utcDate));
 
-    if (!Array.isArray(data.matches)) {
-      throw new Error("La réponse arabe ne contient pas de liste matches.");
-    }
-
-    const matches = data.matches.slice().sort((a,b) => new Date(a.utcDate)-new Date(b.utcDate));
-
-    if (!matches.length) {
-      arabGrid.innerHTML = `<div class="empty">Aucun match arabe n'a été renvoyé pour le ${esc(date)}.<br><br>Essayez une autre date. Cela peut aussi signifier qu'aucun match couvert par l'API n'est programmé ce jour-là.</div>`;
+    if(!matches.length) {
+      arabGrid.innerHTML = `<div class="empty">Aucun match arabe n'a été renvoyé pour le ${esc(date)}.<br><br>Essayez une autre date ou vérifiez la couverture de l'API.</div>`;
       arabStatus.textContent = "Aucun match arabe trouvé";
     } else {
       arabGrid.innerHTML = matches.map(arabMatchCard).join("");
-      arabStatus.textContent = `${matches.length} match${matches.length > 1 ? "s" : ""} arabe${matches.length > 1 ? "s" : ""} · ${date}`;
+      arabStatus.textContent = `${matches.length} match${matches.length>1?"s":""} arabe${matches.length>1?"s":""} · ${date}`;
     }
-
     arabUpdated.textContent = `Mis à jour à ${new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}`;
-  } catch (error) {
-    arabGrid.innerHTML = `<div class="empty"><strong>Impossible de charger les matchs arabes.</strong><br><span class="error">${esc(error.message || "Erreur inconnue")}</span><br><br>Vérifiez que arab-matches.mjs est publié et que la variable API_FOOTBALL_KEY est configurée dans Netlify.</div>`;
+  } catch(error) {
+    arabGrid.innerHTML = `<div class="empty"><strong>Impossible de charger les matchs arabes.</strong><br><span class="error">${esc(error.message || "Erreur inconnue")}</span><br><br>Vérifiez la fonction Netlify arab-matches et la variable API_FOOTBALL_KEY.</div>`;
     arabStatus.textContent = "Erreur de chargement arabe";
   } finally {
     arabRequestInProgress = false;
   }
 }
 
-document.querySelectorAll("[data-comp]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("[data-comp]").forEach(b => b.classList.remove("active"));
+document.querySelectorAll("[data-comp]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll("[data-comp]").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
     selectedComp = btn.dataset.comp;
     loadMatches();
   });
 });
 
-document.getElementById("refresh").addEventListener("click", loadMatches);
-document.getElementById("refreshArab").addEventListener("click", loadArabMatches);
+document.getElementById("refresh").addEventListener("click",loadMatches);
+document.getElementById("refreshArab").addEventListener("click",loadArabMatches);
 
-document.getElementById("applyDates").addEventListener("click", () => {
+document.getElementById("applyDates").addEventListener("click",()=>{
   loadMatches();
   loadArabMatches();
 });
 
-document.getElementById("videoForm").addEventListener("submit", e => {
+document.getElementById("videoForm").addEventListener("submit",e=>{
   e.preventDefault();
-
   const raw = document.getElementById("videoUrl").value.trim();
   const message = document.getElementById("videoMessage");
   const videoBox = document.getElementById("videoBox");
   let url;
 
-  try {
-    url = new URL(raw);
-  } catch {
-    message.textContent = "Veuillez entrer une URL valide.";
-    return;
-  }
+  try { url = new URL(raw); }
+  catch { message.textContent = "Veuillez entrer une URL valide."; return; }
 
   const isYouTube =
-    (url.hostname === "www.youtube.com" || url.hostname === "youtube.com") &&
+    (url.hostname==="www.youtube.com" || url.hostname==="youtube.com") &&
     url.pathname.startsWith("/embed/");
 
-  const isVimeo =
-    url.hostname === "player.vimeo.com" &&
-    url.pathname.startsWith("/video/");
+  const isVimeo = url.hostname==="player.vimeo.com" && url.pathname.startsWith("/video/");
+  const allowed = url.protocol==="https:" && (isYouTube || isVimeo);
 
-  const allowed = url.protocol === "https:" && (isYouTube || isVimeo);
-
-  if (!allowed) {
+  if(!allowed) {
     message.textContent = "URL refusée : utilisez une URL HTTPS d'intégration YouTube ou Vimeo autorisée.";
     return;
   }
 
   document.getElementById("videoFrame").src = url.href;
   videoBox.style.display = "block";
-  message.textContent = "Lecteur chargé. Vérifiez que vous avez le droit de diffuser ce contenu.";
+  message.textContent = "Lecteur chargé. Vérifiez que vous êtes autorisé à diffuser ce contenu.";
 });
 
 loadMatches();
 loadArabMatches();
 
-setInterval(() => {
+setInterval(()=>{
   loadMatches();
   loadArabMatches();
-}, 300000);
+},300000);
 </script>
 </body>
 </html>
