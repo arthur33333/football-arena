@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Football Arena : calendrier des matchs, résultats et actualités du football international.">
+<meta name="description" content="Football Arena : calendrier des matchs, résultats et actualités du football international et arabe.">
 <meta name="theme-color" content="#071b17">
 <title>Football Arena — Matchs et résultats</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2328287169001826" crossorigin="anonymous"></script>
@@ -94,6 +94,7 @@ h1{letter-spacing:-1.4px}
     <nav class="links">
       <a href="#matchs">Matchs</a>
       <a href="#competitions">Compétitions</a>
+      <a href="#matchs-arabes">Matchs arabes</a>
       <a href="#actus">À la une</a>
       <a href="#diffusion">Diffusions officielles</a>
     </nav>
@@ -106,18 +107,18 @@ h1{letter-spacing:-1.4px}
   <div>
     <div class="eyebrow"><span class="dot"></span> Le football, en un seul endroit</div>
     <h1>Le jeu ne<br> s'arrête <span>jamais.</span></h1>
-    <p>Retrouvez le calendrier, les scores et les grandes compétitions du football mondial. Les matchs affichés sont chargés depuis Football-Data.org.</p>
+    <p>Retrouvez le calendrier et les scores des grandes compétitions européennes et arabes, grâce à deux sources de données distinctes.</p>
     <div class="actions">
-      <a class="btn" href="#matchs">Voir les matchs ↓</a>
-      <a class="btn secondary" href="#diffusion">Diffusions officielles</a>
+      <a class="btn" href="#matchs">Matchs européens ↓</a>
+      <a class="btn secondary" href="#matchs-arabes">Matchs arabes ↓</a>
     </div>
   </div>
   <aside class="hero-card">
     <div class="eyebrow">Votre rendez-vous football</div>
     <div class="big">90'<span style="color:var(--green)">+</span></div>
-    <p>Avant-match, coup d'envoi et résultats : suivez les rencontres disponibles dans les compétitions couvertes par votre API.</p>
-    <div class="minirow"><span>Actualisation</span><strong>Manuelle / 5 min</strong></div>
-    <div class="minirow"><span>Source des données</span><strong>Football-Data.org</strong></div>
+    <p>Avant-match, coup d'envoi et résultats : consultez les rencontres disponibles.</p>
+    <div class="minirow"><span>Actualisation européenne</span><strong>Automatique</strong></div>
+    <div class="minirow"><span>Sources</span><strong>2 API</strong></div>
   </aside>
 </section>
 
@@ -126,11 +127,11 @@ h1{letter-spacing:-1.4px}
 <section id="matchs">
   <div class="section-head">
     <div>
-      <div class="eyebrow">Centre des matchs</div>
-      <h2>Calendrier &amp; résultats</h2>
+      <div class="eyebrow">Source 1 · Football-Data.org</div>
+      <h2>Matchs européens</h2>
       <p>Les horaires sont affichés dans votre fuseau horaire local.</p>
     </div>
-    <button class="btn secondary" id="refresh">↻ Actualiser</button>
+    <button class="btn secondary" id="refresh">↻ Actualiser l'Europe</button>
   </div>
 
   <div class="filters" id="competitions">
@@ -147,19 +148,39 @@ h1{letter-spacing:-1.4px}
   <div class="match-tools">
     <label class="filter" for="fromDate">Du <input id="fromDate" type="date"></label>
     <label class="filter" for="toDate">Au <input id="toDate" type="date"></label>
-    <button class="btn" id="applyDates">Rechercher</button>
+    <button class="btn" id="applyDates">Rechercher les matchs européens</button>
   </div>
 
   <div class="statusline">
-    <span id="status">Chargement des matchs…</span>
+    <span id="status">Chargement des matchs européens…</span>
     <span id="updated"></span>
   </div>
-
   <div class="match-grid" id="matchGrid">
     <div class="empty">Chargement des données football…</div>
   </div>
+  <p class="notice">La disponibilité des compétitions européennes dépend de votre abonnement Football-Data.org.</p>
+</section>
 
-  <p class="notice">La disponibilité des compétitions dépend de votre abonnement Football-Data.org. Les championnats algériens et arabes peuvent ne pas être inclus dans l'offre gratuite.</p>
+<div class="ad">Espace publicitaire · ajoutez ici le code de votre unité AdSense</div>
+
+<section id="matchs-arabes">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Source 2 · API-Football</div>
+      <h2>Matchs du monde arabe</h2>
+      <p>Algérie, Égypte, Arabie saoudite, Maroc, Tunisie et autres pays arabes couverts par l'API.</p>
+    </div>
+    <button class="btn secondary" id="refreshArab">↻ Actualiser les matchs arabes</button>
+  </div>
+
+  <div class="statusline">
+    <span id="arabStatus">Chargement des matchs arabes…</span>
+    <span id="arabUpdated"></span>
+  </div>
+  <div class="match-grid" id="arabMatchGrid">
+    <div class="empty">Récupération des matchs arabes…</div>
+  </div>
+  <p class="notice">Les matchs arabes sont chargés séparément. Pour consulter une autre journée, choisissez sa date dans le champ « Du » ci-dessus, puis cliquez sur « Rechercher les matchs européens » : les deux sections seront actualisées. L'API ne renvoie que les matchs qu'elle couvre pour la date demandée.</p>
 </section>
 
 <div class="ad">Espace publicitaire · ajoutez ici le code de votre unité AdSense</div>
@@ -173,21 +194,9 @@ h1{letter-spacing:-1.4px}
     </div>
   </div>
   <div class="news-grid">
-    <article class="news">
-      <div class="emoji">🌍</div>
-      <h3>Le football mondial</h3>
-      <p>Suivez les grands rendez-vous internationaux et les compétitions majeures de la saison.</p>
-    </article>
-    <article class="news">
-      <div class="emoji">🏆</div>
-      <h3>La course aux trophées</h3>
-      <p>Consultez les rencontres et les résultats disponibles pour les compétitions prises en charge.</p>
-    </article>
-    <article class="news">
-      <div class="emoji">📣</div>
-      <h3>Votre espace éditorial</h3>
-      <p>Ajoutez ici vos analyses, avant-matchs et comptes rendus pour fidéliser vos lecteurs.</p>
-    </article>
+    <article class="news"><div class="emoji">🌍</div><h3>Le football mondial</h3><p>Suivez les grands rendez-vous internationaux et les compétitions majeures de la saison.</p></article>
+    <article class="news"><div class="emoji">🏆</div><h3>La course aux trophées</h3><p>Consultez les rencontres et les résultats disponibles pour les compétitions prises en charge.</p></article>
+    <article class="news"><div class="emoji">📣</div><h3>Votre espace éditorial</h3><p>Ajoutez ici vos analyses, avant-matchs et comptes rendus pour fidéliser vos lecteurs.</p></article>
   </div>
 </section>
 
@@ -195,11 +204,7 @@ h1{letter-spacing:-1.4px}
 
 <section id="diffusion">
   <div class="section-head">
-    <div>
-      <div class="eyebrow">Regarder légalement</div>
-      <h2>Diffusions officielles</h2>
-      <p>Ajoutez uniquement des liens ou lecteurs que vous êtes autorisé à intégrer.</p>
-    </div>
+    <div><div class="eyebrow">Regarder légalement</div><h2>Diffusions officielles</h2><p>Ajoutez uniquement des liens ou lecteurs que vous êtes autorisé à intégrer.</p></div>
   </div>
   <div class="broadcast">
     <div>
@@ -214,9 +219,7 @@ h1{letter-spacing:-1.4px}
     </div>
     <div>
       <a class="btn secondary" href="https://www.plus.fifa.com/" target="_blank" rel="noopener noreferrer">Explorer FIFA+ ↗</a>
-      <div class="video" id="videoBox">
-        <iframe id="videoFrame" title="Lecteur vidéo officiel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-      </div>
+      <div class="video" id="videoBox"><iframe id="videoFrame" title="Lecteur vidéo officiel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
     </div>
   </div>
 </section>
@@ -226,11 +229,11 @@ h1{letter-spacing:-1.4px}
   <div class="wrap">
     <div class="footrow">
       <span>© <span id="year"></span> Football Arena</span>
-      <span>Scores et calendriers fournis par Football-Data.org</span>
+      <span>Scores européens : Football-Data.org · Matchs arabes : API-Football</span>
       <span>Les logos et marques appartiennent à leurs propriétaires.</span>
     </div>
-    <div class="attribution">Football data provided by the Football-Data.org API.</div>
-    <p>Les informations sont fournies à titre informatif et peuvent être retardées ou indisponibles selon la compétition et le forfait API.</p>
+    <div class="attribution">Football data provided by the respective football data APIs.</div>
+    <p>Les informations peuvent être retardées ou indisponibles selon la compétition et le forfait API.</p>
   </div>
 </footer>
 
@@ -240,8 +243,13 @@ h1{letter-spacing:-1.4px}
 const grid = document.getElementById("matchGrid");
 const statusEl = document.getElementById("status");
 const updatedEl = document.getElementById("updated");
+const arabGrid = document.getElementById("arabMatchGrid");
+const arabStatus = document.getElementById("arabStatus");
+const arabUpdated = document.getElementById("arabUpdated");
+
 let selectedComp = "ALL";
 let requestInProgress = false;
+let arabRequestInProgress = false;
 
 const todayLocal = () => {
   const d = new Date();
@@ -263,21 +271,14 @@ function fmtDate(value) {
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return "Horaire indisponible";
   return new Intl.DateTimeFormat("fr-FR", {
-    weekday: "short",
-    day: "2-digit",
-    month: "short",
-    hour: "2-digit",
-    minute: "2-digit"
+    weekday: "short", day: "2-digit", month: "short",
+    hour: "2-digit", minute: "2-digit"
   }).format(d);
 }
 
 function esc(value) {
   return String(value ?? "").replace(/[&<>"']/g, c => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   }[c]));
 }
 
@@ -300,8 +301,6 @@ function matchCard(m) {
   else if (m.status === "CANCELLED") matchStatus = "ANNULÉ";
   else if (m.status === "SUSPENDED") matchStatus = "SUSPENDU";
 
-  const score = hasScore ? `${hs} – ${as}` : "VS";
-
   return `
     <article class="match">
       <div class="match-top">
@@ -309,19 +308,50 @@ function matchCard(m) {
         <span class="badge ${live ? "live" : ""}">${matchStatus}</span>
       </div>
       <div class="teams">
-        <div class="team">
-          <div class="crest">${esc(initials(home))}</div>
-          ${esc(home)}
-        </div>
-        <div class="score">${score}</div>
-        <div class="team">
-          <div class="crest">${esc(initials(away))}</div>
-          ${esc(away)}
-        </div>
+        <div class="team"><div class="crest">${esc(initials(home))}</div>${esc(home)}</div>
+        <div class="score">${hasScore ? `${hs} – ${as}` : "VS"}</div>
+        <div class="team"><div class="crest">${esc(initials(away))}</div>${esc(away)}</div>
       </div>
       <div class="match-bottom">
         <span>${esc(fmtDate(m.utcDate))}</span>
         <span>${esc(m.matchday ? `Journée ${m.matchday}` : "")}</span>
+      </div>
+    </article>`;
+}
+
+function arabStatusLabel(status) {
+  if (["1H","2H","HT","ET","P","LIVE","BT"].includes(status)) return "EN DIRECT";
+  if (status === "FT" || status === "AET" || status === "PEN") return "TERMINÉ";
+  if (status === "PST") return "REPORTÉ";
+  if (status === "CANC") return "ANNULÉ";
+  if (status === "SUSP") return "SUSPENDU";
+  if (status === "ABD") return "INTERROMPU";
+  if (status === "NS") return "À VENIR";
+  return status || "À VENIR";
+}
+
+function arabMatchCard(m) {
+  const home = m.homeTeam?.name || "Équipe domicile";
+  const away = m.awayTeam?.name || "Équipe extérieure";
+  const hs = m.score?.fullTime?.home;
+  const as = m.score?.fullTime?.away;
+  const hasScore = hs !== null && hs !== undefined && as !== null && as !== undefined;
+  const live = ["1H","2H","HT","ET","P","LIVE","BT"].includes(m.status);
+
+  return `
+    <article class="match">
+      <div class="match-top">
+        <span class="league">${esc(m.competition?.name || "Championnat arabe")} · ${esc(m.country || m.competition?.area?.name || "")}</span>
+        <span class="badge ${live ? "live" : ""}">${esc(arabStatusLabel(m.status))}</span>
+      </div>
+      <div class="teams">
+        <div class="team"><div class="crest">${esc(initials(home))}</div>${esc(home)}</div>
+        <div class="score">${hasScore ? `${hs} – ${as}` : "VS"}</div>
+        <div class="team"><div class="crest">${esc(initials(away))}</div>${esc(away)}</div>
+      </div>
+      <div class="match-bottom">
+        <span>${esc(fmtDate(m.utcDate))}</span>
+        <span>${esc(m.venue || "")}</span>
       </div>
     </article>`;
 }
@@ -340,87 +370,98 @@ async function loadMatches() {
     return;
   }
 
-  statusEl.textContent = "Chargement des matchs…";
+  statusEl.textContent = "Chargement des matchs européens…";
   updatedEl.textContent = "";
   grid.innerHTML = '<div class="empty">Récupération des rencontres…</div>';
 
   try {
-    const params = new URLSearchParams({
-      dateFrom: from,
-      dateTo: to
-    });
-
-    if (selectedComp !== "ALL") {
-      params.set("competition", selectedComp);
-    }
+    const params = new URLSearchParams({dateFrom: from, dateTo: to});
+    if (selectedComp !== "ALL") params.set("competition", selectedComp);
 
     const response = await fetch(`/.netlify/functions/matches?${params.toString()}`, {
-      method: "GET",
-      headers: { "Accept": "application/json" },
+      headers: {"Accept":"application/json"},
       cache: "no-store"
     });
 
-    const responseText = await response.text();
+    const text = await response.text();
     let data;
+    try { data = JSON.parse(text); }
+    catch { throw new Error(`Réponse non JSON de la fonction matches (HTTP ${response.status}).`); }
 
-    try {
-      data = JSON.parse(responseText);
-    } catch {
-      throw new Error(
-        `La fonction Netlify n'a pas renvoyé du JSON (HTTP ${response.status}). Vérifiez le déploiement de matches.mjs.`
-      );
+    if (!response.ok || data.error) {
+      throw new Error(data.detail || data.error || `Erreur HTTP ${response.status}`);
+    }
+    if (!Array.isArray(data.matches)) {
+      throw new Error("La réponse européenne ne contient pas de liste matches.");
     }
 
-    if (!response.ok) {
-      const detail = data.detail || data.error || data.message || "";
-      throw new Error(`Erreur HTTP ${response.status}${detail ? " : " + detail : ""}`);
+    const matches = data.matches.slice().sort((a,b) => new Date(a.utcDate)-new Date(b.utcDate));
+
+    if (!matches.length) {
+      grid.innerHTML = '<div class="empty">Aucun match européen trouvé pour cette période. Essayez une autre date ou une autre compétition.</div>';
+      statusEl.textContent = "Aucune rencontre européenne";
+    } else {
+      grid.innerHTML = matches.map(matchCard).join("");
+      statusEl.textContent = `${matches.length} rencontre${matches.length > 1 ? "s" : ""} européenne${matches.length > 1 ? "s" : ""}`;
     }
 
-    if (data.error) {
-      throw new Error(data.detail || data.error);
+    updatedEl.textContent = `Mis à jour à ${new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}`;
+  } catch (error) {
+    grid.innerHTML = `<div class="empty"><strong>Impossible de charger les matchs européens.</strong><br><span class="error">${esc(error.message || "Erreur inconnue")}</span><br><br>Vérifiez la fonction Netlify matches et la variable FOOTBALL_DATA_API_KEY.</div>`;
+    statusEl.textContent = "Erreur de chargement européen";
+  } finally {
+    requestInProgress = false;
+  }
+}
+
+async function loadArabMatches() {
+  if (arabRequestInProgress) return;
+  arabRequestInProgress = true;
+
+  const date = document.getElementById("fromDate").value || todayLocal();
+  arabStatus.textContent = `Recherche des matchs arabes du ${date}…`;
+  arabUpdated.textContent = "";
+  arabGrid.innerHTML = '<div class="empty">Récupération des matchs arabes…</div>';
+
+  try {
+    const params = new URLSearchParams({date});
+    const response = await fetch(`/.netlify/functions/arab-matches?${params.toString()}`, {
+      headers: {"Accept":"application/json"},
+      cache: "no-store"
+    });
+
+    const text = await response.text();
+    let data;
+    try { data = JSON.parse(text); }
+    catch { throw new Error(`Réponse non JSON de la fonction arab-matches (HTTP ${response.status}).`); }
+
+    if (!response.ok || data.error) {
+      const detail = typeof data.details === "string"
+        ? data.details
+        : data.details ? JSON.stringify(data.details) : "";
+      throw new Error([data.error, detail].filter(Boolean).join(" — ") || `Erreur HTTP ${response.status}`);
     }
 
     if (!Array.isArray(data.matches)) {
-      throw new Error("La réponse de l'API ne contient pas de liste « matches ».");
+      throw new Error("La réponse arabe ne contient pas de liste matches.");
     }
 
-    const matches = data.matches.slice().sort(
-      (a, b) => new Date(a.utcDate) - new Date(b.utcDate)
-    );
+    const matches = data.matches.slice().sort((a,b) => new Date(a.utcDate)-new Date(b.utcDate));
 
-    if (matches.length === 0) {
-      grid.innerHTML = `
-        <div class="empty">
-          Aucun match renvoyé pour cette période.
-          Essayez une autre date ou une autre compétition.
-          <br><br>
-          Si ce message persiste, vérifiez l'accès de votre clé Football-Data.org
-          aux compétitions demandées.
-        </div>`;
-      statusEl.textContent = "Aucune rencontre trouvée";
+    if (!matches.length) {
+      arabGrid.innerHTML = `<div class="empty">Aucun match arabe n'a été renvoyé pour le ${esc(date)}.<br><br>Essayez une autre date. Cela peut aussi signifier qu'aucun match couvert par l'API n'est programmé ce jour-là.</div>`;
+      arabStatus.textContent = "Aucun match arabe trouvé";
     } else {
-      grid.innerHTML = matches.map(matchCard).join("");
-      statusEl.textContent = `${matches.length} rencontre${matches.length > 1 ? "s" : ""} affichée${matches.length > 1 ? "s" : ""}`;
+      arabGrid.innerHTML = matches.map(arabMatchCard).join("");
+      arabStatus.textContent = `${matches.length} match${matches.length > 1 ? "s" : ""} arabe${matches.length > 1 ? "s" : ""} · ${date}`;
     }
 
-    updatedEl.textContent = `Mis à jour à ${new Date().toLocaleTimeString("fr-FR", {
-      hour: "2-digit",
-      minute: "2-digit"
-    })}`;
-
+    arabUpdated.textContent = `Mis à jour à ${new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})}`;
   } catch (error) {
-    grid.innerHTML = `
-      <div class="empty">
-        <strong>Impossible de charger les matchs.</strong>
-        <br>
-        <span class="error">${esc(error.message || "Erreur inconnue")}</span>
-        <br><br>
-        Vérifiez que la fonction Netlify « matches » est publiée
-        et que la variable FOOTBALL_DATA_API_KEY est configurée.
-      </div>`;
-    statusEl.textContent = "Erreur de chargement";
+    arabGrid.innerHTML = `<div class="empty"><strong>Impossible de charger les matchs arabes.</strong><br><span class="error">${esc(error.message || "Erreur inconnue")}</span><br><br>Vérifiez que arab-matches.mjs est publié et que la variable API_FOOTBALL_KEY est configurée dans Netlify.</div>`;
+    arabStatus.textContent = "Erreur de chargement arabe";
   } finally {
-    requestInProgress = false;
+    arabRequestInProgress = false;
   }
 }
 
@@ -434,36 +475,33 @@ document.querySelectorAll("[data-comp]").forEach(btn => {
 });
 
 document.getElementById("refresh").addEventListener("click", loadMatches);
-document.getElementById("applyDates").addEventListener("click", loadMatches);
+document.getElementById("refreshArab").addEventListener("click", loadArabMatches);
+
+document.getElementById("applyDates").addEventListener("click", () => {
+  loadMatches();
+  loadArabMatches();
+});
 
 document.getElementById("videoForm").addEventListener("submit", e => {
   e.preventDefault();
-
   const raw = document.getElementById("videoUrl").value.trim();
   const message = document.getElementById("videoMessage");
   const videoBox = document.getElementById("videoBox");
   let url;
 
-  try {
-    url = new URL(raw);
-  } catch {
-    message.textContent = "Veuillez entrer une URL valide.";
-    return;
-  }
+  try { url = new URL(raw); }
+  catch { message.textContent = "Veuillez entrer une URL valide."; return; }
 
-  // Vérification corrigée : parenthèses équilibrées.
   const isYouTube =
     (url.hostname === "www.youtube.com" || url.hostname === "youtube.com") &&
     url.pathname.startsWith("/embed/");
-
   const isVimeo =
     url.hostname === "player.vimeo.com" &&
     url.pathname.startsWith("/video/");
-
   const allowed = url.protocol === "https:" && (isYouTube || isVimeo);
 
   if (!allowed) {
-    message.textContent = "URL refusée : utilisez uniquement une URL HTTPS d’intégration YouTube ou Vimeo autorisée.";
+    message.textContent = "URL refusée : utilisez une URL HTTPS d’intégration YouTube ou Vimeo autorisée.";
     return;
   }
 
@@ -473,6 +511,7 @@ document.getElementById("videoForm").addEventListener("submit", e => {
 });
 
 loadMatches();
+loadArabMatches();
 setInterval(loadMatches, 300000);
 </script>
 </body>
