@@ -2,30 +2,26 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Redirection en cours...</title>
+    <title>Patientez pendant la vérification du flux...</title>
     <style>
         body { margin: 0; background: #071b17; color: #f3f7f4; font-family: system-ui, sans-serif; display: grid; place-items: center; height: 100vh; text-align: center; padding: 20px; }
-        .box { background: #102a24; border: 1px solid #26483e; border-radius: 16px; padding: 30px; max-width: 400px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .box { background: #102a24; border: 1px solid #26483e; border-radius: 16px; padding: 30px; max-width: 420px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         h2 { color: #b8f36b; margin-top: 0; }
         p { color: #a6bbb2; font-size: 14px; }
-        #timer { font-size: 28px; font-weight: bold; color: #ffbf69; margin: 15px 0; }
-        .btn { display: inline-block; margin-top: 15px; background: #b8f36b; color: #14231a; padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; }
+        #timer { font-size: 32px; font-weight: bold; color: #ffbf69; margin: 15px 0; }
+        .btn { display: inline-block; margin-top: 15px; background: #b8f36b; color: #14231a; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; }
     </style>
     <script>
         const params = new URLSearchParams(window.location.search);
-        const targetUrl = params.get('to');
+        // La page de retour vers votre site (par exemple votre page d'accueil ou la page du match)
+        const returnUrl = params.get('return') || '/';
         let timeLeft = 30;
 
         function startCountdown() {
             const timerEl = document.getElementById('timer');
             const manualBtn = document.getElementById('manualBtn');
 
-            if (!targetUrl) {
-                document.querySelector('.box').innerHTML = "<h2>Erreur</h2><p>Aucune destination spécifiée.</p>";
-                return;
-            }
-
-            manualBtn.href = targetUrl;
+            manualBtn.href = returnUrl;
 
             const interval = setInterval(() => {
                 timeLeft--;
@@ -33,7 +29,8 @@
 
                 if (timeLeft <= 0) {
                     clearInterval(interval);
-                    window.location.replace(targetUrl);
+                    // Redirige l'utilisateur vers votre site pour voir le match
+                    window.location.replace(returnUrl);
                 }
             }, 1000);
         }
@@ -43,11 +40,11 @@
 </head>
 <body>
     <div class="box">
-        <h2>Préparation de votre lien</h2>
-        <p>Veuillez patienter pendant que nous préparons votre redirection...</p>
+        <h2>Chargement du flux en cours</h2>
+        <p>Veuillez patienter pendant que nous préparons la diffusion du match...</p>
         <div id="timer">30</div>
-        <p>Vous allez être redirigé automatiquement vers votre partenaire.</p>
-        <a id="manualBtn" class="btn" href="#" target="_blank" rel="noopener">Accéder immédiatement</a>
+        <p>Vous allez être redirigé vers le lecteur dans quelques instants.</p>
+        <a id="manualBtn" class="btn" href="#">Voir le match maintenant</a>
     </div>
 </body>
 </html>
